@@ -1,13 +1,16 @@
 const STORAGE_KEY = 'questsDB'
 
+
+console.log(gQuestsTree)
 var gQuestsTree
 var gCurrQuest
 var gPrevQuest = null
 
 
 function createQuestsTree() {
-  var questsTree  = loadFromStorage(STORAGE_KEY)
-
+  
+  // var questsTree  = loadFromStorage(STORAGE_KEY)
+  var questsTree = gQuestsTree
   if (!questsTree) {
     questsTree = createQuest('Male?')
     questsTree.yes = createQuest('Gandhi')

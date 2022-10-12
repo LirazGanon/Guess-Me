@@ -13,7 +13,7 @@ $('.btn-add-guess').click(onAddGuess)
 function init() {
   $('.year').text(new Date().getFullYear())
   console.log('Started...')
-  createQuestsTree()
+ 
 }
 
 function onStartGuessing() {

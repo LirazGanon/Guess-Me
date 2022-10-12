@@ -1,13 +1,14 @@
 'use strict'
 
 let req = new XMLHttpRequest();
-var gRes
 
 req.onreadystatechange = () => {
     if (req.readyState == XMLHttpRequest.DONE) {
         console.log(JSON.parse(req.responseText).record);
-        gRes =JSON.parse(req.responseText).record;
+        gQuestsTree = JSON.parse(req.responseText).record;
+        gCurrQuest = gQuestsTree
     }
+
 };
 
 req.open("GET", "https://api.jsonbin.io/v3/b/6346563365b57a31e6937523/latest", true);
