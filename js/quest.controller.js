@@ -12,8 +12,20 @@ $('.btn-add-guess').click(onAddGuess)
 
 function init() {
   $('.year').text(new Date().getFullYear())
-  console.log('Started...')
- 
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+
 }
 
 function onStartGuessing() {
@@ -32,7 +44,6 @@ function renderQuest() {
 }
 
 function onUserResponse(ev) {
-  console.log('ev', ev)
   var res = ev.data.ans
   // If this node has no children
   if (isChildless(getCurrQuest())) {
@@ -59,7 +70,17 @@ function onUserResponse(ev) {
 function onAddGuess(ev) {
   ev.preventDefault()
   var newGuess = $('#newGuess').val()
+  $('#newGuess').removeClass('is-invalid')
+  $('#newQuest').removeClass('is-invalid')
+  if (!newGuess.trim()){
+    $('#newGuess').addClass('is-invalid')
+    return
+  }
   var newQuest = $('#newQuest').val()
+  if(!newQuest.trim()){
+    $('#newQuest').addClass('is-invalid')
+    return 
+  }
 
   // TODO: Get the inputs' values
   // TODO: Call the service addGuess

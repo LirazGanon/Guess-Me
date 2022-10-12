@@ -1,7 +1,5 @@
 const STORAGE_KEY = 'questsDB'
 
-
-console.log(gQuestsTree)
 var gQuestsTree
 var gCurrQuest
 var gPrevQuest = null
@@ -60,7 +58,7 @@ function resetQuestsTree() {
 }
 
 function _saveQuestsToStorage() {
-  saveToStorage(STORAGE_KEY, gQuestsTree)
+  saveToStorage(gQuestsTree)
 }
 
 

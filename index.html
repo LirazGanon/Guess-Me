@@ -52,20 +52,26 @@
     <section class="new-quest" style="display: none">
       <h2>OK, I gave up...</h2>
 
-      <form class="ending-form">
+      <form class="ending-form needs-validation" novalidate>
         <label for="newGuess">You thought of: </label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
           <input type="text" class="form-control" name="newGuess" id="newGuess" placeholder="Your Guess"
           aria-describedby="basic-addon3" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
         <label for="newQuest">Question to differentiate:</label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
           <input type="text"  name="newQuest" class="form-control" id="newQuest" placeholder="The answer is YES for yours"
-          aria-describedby="basic-addon3">
+          aria-describedby="basic-addon3" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
               <button type="submit" class="btn btn-add-guess btn-success">Make me Smarter!</button>
       </form>
@@ -108,7 +114,7 @@
       </div>
     </div>
 
-      
+  
   </main>
 
   <footer>FalafelRights &copy; <span class="year"></span></footer>
